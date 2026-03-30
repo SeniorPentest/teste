@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VØID — Streetwear do Futuro</title>
+  <title>VØID — Modern Streetwear</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
@@ -24,7 +24,9 @@
         <a href="#colecao">Coleção</a>
         <a href="#sobre">Manifesto</a>
         <a href="#newsletter">Contato</a>
-        <a href="#colecao" class="btn btn--outline">Shop</a>
+        <button class="cart-btn" id="cartBtn">
+          🛒 Carrinho <span class="cart-count" id="cartCount">0</span>
+        </button>
       </nav>
     </div>
   </header>
@@ -34,14 +36,14 @@
     <div class="hero__scan"></div>
     <div class="hero__grid"></div>
     <div class="hero__content container">
-      <p class="hero__sub mono">// SS 2025 — URBAN SYSTEM</p>
+      <p class="hero__sub mono">// SS 2025 — URBAN COLLECTION</p>
       <h1 class="hero__title">
         WEAR<br />
-        <span class="glitch" data-text="THE FUTURE">THE FUTURE</span>
+        <span class="glitch" data-text="YOUR STYLE">YOUR STYLE</span>
       </h1>
       <p class="hero__desc">
-        Streetwear construído para quem vive entre o concreto e o código.<br />
-        Estética radical. Tecido premium. Zero compromisso.
+        Streetwear autêntico para quem valoriza qualidade e estilo.<br />
+        Design clean. Tecido premium. Atitude genuína.
       </p>
       <div class="hero__cta">
         <a href="#colecao" class="btn btn--primary">Explorar Coleção</a>
@@ -49,8 +51,8 @@
       </div>
     </div>
     <div class="hero__ticker">
-      <span>STREETWEAR &nbsp;·&nbsp; FUTURO &nbsp;·&nbsp; URBAN &nbsp;·&nbsp; VOID &nbsp;·&nbsp; SYSTEM &nbsp;·&nbsp; OVERSIZE &nbsp;·&nbsp; MONOCHROME &nbsp;·&nbsp; CYBER &nbsp;·&nbsp; STREETWEAR &nbsp;·&nbsp; FUTURO &nbsp;·&nbsp; URBAN &nbsp;·&nbsp;</span>
-      <span aria-hidden="true">STREETWEAR &nbsp;·&nbsp; FUTURO &nbsp;·&nbsp; URBAN &nbsp;·&nbsp; VOID &nbsp;·&nbsp; SYSTEM &nbsp;·&nbsp; OVERSIZE &nbsp;·&nbsp; MONOCHROME &nbsp;·&nbsp; CYBER &nbsp;·&nbsp; STREETWEAR &nbsp;·&nbsp; FUTURO &nbsp;·&nbsp; URBAN &nbsp;·&nbsp;</span>
+      <span>STREETWEAR &nbsp;·&nbsp; QUALIDADE &nbsp;·&nbsp; ESTILO &nbsp;·&nbsp; VOID &nbsp;·&nbsp; AUTÊNTICO &nbsp;·&nbsp; CONFORTO &nbsp;·&nbsp; DESIGN &nbsp;·&nbsp; URBANO &nbsp;·&nbsp; STREETWEAR &nbsp;·&nbsp; QUALIDADE &nbsp;·&nbsp; ESTILO &nbsp;·&nbsp;</span>
+      <span aria-hidden="true">STREETWEAR &nbsp;·&nbsp; QUALIDADE &nbsp;·&nbsp; ESTILO &nbsp;·&nbsp; VOID &nbsp;·&nbsp; AUTÊNTICO &nbsp;·&nbsp; CONFORTO &nbsp;·&nbsp; DESIGN &nbsp;·&nbsp; URBANO &nbsp;·&nbsp; STREETWEAR &nbsp;·&nbsp; QUALIDADE &nbsp;·&nbsp; ESTILO &nbsp;·&nbsp;</span>
     </div>
   </section>
 
@@ -91,9 +93,9 @@
         <div class="carousel__track" id="carouselTrack">
 
           <!-- Card 1 -->
-          <article class="card">
-            <div class="card__img" style="background: linear-gradient(135deg,#1a1a1a 0%,#2d2d2d 100%)">
-              <div class="card__img-art" data-label="01"></div>
+          <article class="card" data-id="1" data-name="VOID OVERSIZED HOODIE" data-category="HOODIE" data-price="389">
+            <div class="card__img">
+              <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=500&fit=crop" alt="VOID Oversized Hoodie" loading="lazy" />
               <span class="card__badge">NEW</span>
             </div>
             <div class="card__body">
@@ -107,9 +109,9 @@
           </article>
 
           <!-- Card 2 -->
-          <article class="card">
-            <div class="card__img" style="background: linear-gradient(135deg,#111 0%,#333 100%)">
-              <div class="card__img-art" data-label="02"></div>
+          <article class="card" data-id="2" data-name="MATRIX GRAPHIC TEE" data-category="T-SHIRT" data-price="189">
+            <div class="card__img">
+              <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=500&fit=crop" alt="Matrix Graphic Tee" loading="lazy" />
             </div>
             <div class="card__body">
               <p class="card__cat mono">T-SHIRT</p>
@@ -122,9 +124,9 @@
           </article>
 
           <!-- Card 3 -->
-          <article class="card">
-            <div class="card__img" style="background: linear-gradient(135deg,#0d0d0d 0%,#2a2a2a 100%)">
-              <div class="card__img-art" data-label="03"></div>
+          <article class="card" data-id="3" data-name="CYBER CARGO PANTS" data-category="CARGO" data-price="479">
+            <div class="card__img">
+              <img src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=400&h=500&fit=crop" alt="Cyber Cargo Pants" loading="lazy" />
               <span class="card__badge card__badge--hot">HOT</span>
             </div>
             <div class="card__body">
@@ -138,9 +140,9 @@
           </article>
 
           <!-- Card 4 -->
-          <article class="card">
-            <div class="card__img" style="background: linear-gradient(135deg,#181818 0%,#303030 100%)">
-              <div class="card__img-art" data-label="04"></div>
+          <article class="card" data-id="4" data-name="STATIC TECH JACKET" data-category="JACKET" data-price="699">
+            <div class="card__img">
+              <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=500&fit=crop" alt="Static Tech Jacket" loading="lazy" />
             </div>
             <div class="card__body">
               <p class="card__cat mono">JACKET</p>
@@ -153,9 +155,9 @@
           </article>
 
           <!-- Card 5 -->
-          <article class="card">
-            <div class="card__img" style="background: linear-gradient(135deg,#141414 0%,#2e2e2e 100%)">
-              <div class="card__img-art" data-label="05"></div>
+          <article class="card" data-id="5" data-name="GRID TACTICAL SHORTS" data-category="SHORTS" data-price="279">
+            <div class="card__img">
+              <img src="https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=400&h=500&fit=crop" alt="Grid Tactical Shorts" loading="lazy" />
             </div>
             <div class="card__body">
               <p class="card__cat mono">SHORTS</p>
@@ -168,9 +170,9 @@
           </article>
 
           <!-- Card 6 -->
-          <article class="card">
-            <div class="card__img" style="background: linear-gradient(135deg,#1c1c1c 0%,#353535 100%)">
-              <div class="card__img-art" data-label="06"></div>
+          <article class="card" data-id="6" data-name="NEURAL BEANIE CAP" data-category="ACESSÓRIO" data-price="149">
+            <div class="card__img">
+              <img src="https://images.unsplash.com/photo-1576871337622-98d48d1cf531?w=400&h=500&fit=crop" alt="Neural Beanie Cap" loading="lazy" />
               <span class="card__badge">NEW</span>
             </div>
             <div class="card__body">
@@ -184,9 +186,9 @@
           </article>
 
           <!-- Card 7 -->
-          <article class="card">
-            <div class="card__img" style="background: linear-gradient(135deg,#0f0f0f 0%,#272727 100%)">
-              <div class="card__img-art" data-label="07"></div>
+          <article class="card" data-id="7" data-name="GHOST PROTOCOL LS" data-category="LONGSLEEVE" data-price="239">
+            <div class="card__img">
+              <img src="https://images.unsplash.com/photo-1620799140188-3b2a7c2fd377?w=400&h=500&fit=crop" alt="Ghost Protocol LS" loading="lazy" />
             </div>
             <div class="card__body">
               <p class="card__cat mono">LONGSLEEVE</p>
@@ -199,9 +201,9 @@
           </article>
 
           <!-- Card 8 -->
-          <article class="card">
-            <div class="card__img" style="background: linear-gradient(135deg,#161616 0%,#2c2c2c 100%)">
-              <div class="card__img-art" data-label="08"></div>
+          <article class="card" data-id="8" data-name="SIGNAL WINDBREAKER" data-category="WINDBREAKER" data-price="559">
+            <div class="card__img">
+              <img src="https://images.unsplash.com/photo-1614249927860-820cbbe471ca?w=400&h=500&fit=crop" alt="Signal Windbreaker" loading="lazy" />
               <span class="card__badge card__badge--hot">HOT</span>
             </div>
             <div class="card__body">
@@ -377,6 +379,98 @@
       <p class="mono">PRIVACY &nbsp;·&nbsp; TERMS</p>
     </div>
   </footer>
+
+  <!-- ─── CART SIDEBAR ──────────────────────────────────────────── -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h3>Seu Carrinho</h3>
+      <button class="cart-close" id="cartClose" aria-label="Fechar carrinho">&times;</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <div class="cart-empty" id="cartEmpty">
+        <div class="cart-empty-icon">🛒</div>
+        <p class="cart-empty-text">Seu carrinho está vazio</p>
+      </div>
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display: none;">
+      <div class="cart-total">
+        <span class="cart-total-label">Total:</span>
+        <span class="cart-total-value" id="cartTotalValue">R$ 0</span>
+      </div>
+      <button class="cart-checkout-btn" id="checkoutBtn">Finalizar Compra</button>
+    </div>
+  </aside>
+
+  <!-- ─── CHECKOUT MODAL ────────────────────────────────────────── -->
+  <div class="checkout-modal" id="checkoutModal">
+    <div class="checkout-backdrop" id="checkoutBackdrop"></div>
+    <div class="checkout-content">
+      <div class="checkout-header">
+        <h3>Finalizar Compra</h3>
+        <button class="cart-close" id="checkoutClose" aria-label="Fechar">&times;</button>
+      </div>
+      <div class="checkout-body" id="checkoutBody">
+        <div class="checkout-summary">
+          <div class="checkout-summary-item">
+            <span>Subtotal:</span>
+            <span id="checkoutSubtotal">R$ 0</span>
+          </div>
+          <div class="checkout-summary-item">
+            <span>Frete:</span>
+            <span id="checkoutShipping">R$ 0</span>
+          </div>
+          <div class="checkout-summary-item total">
+            <span>Total:</span>
+            <span id="checkoutTotal">R$ 0</span>
+          </div>
+        </div>
+
+        <form class="checkout-form" id="checkoutForm">
+          <div class="form-group">
+            <label class="form-label" for="customerName">Nome Completo</label>
+            <input type="text" class="form-input" id="customerName" placeholder="Seu nome completo" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="customerEmail">E-mail</label>
+            <input type="email" class="form-input" id="customerEmail" placeholder="seu@email.com" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="customerPhone">Telefone</label>
+            <input type="tel" class="form-input" id="customerPhone" placeholder="(00) 00000-0000" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="cardNumber">Número do Cartão</label>
+            <input type="text" class="form-input" id="cardNumber" placeholder="0000 0000 0000 0000" maxlength="19" required />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="cardExpiry">Validade</label>
+              <input type="text" class="form-input" id="cardExpiry" placeholder="MM/AA" maxlength="5" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="cardCVV">CVV</label>
+              <input type="text" class="form-input" id="cardCVV" placeholder="000" maxlength="4" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="cardName">Nome no Cartão</label>
+            <input type="text" class="form-input" id="cardName" placeholder="Nome como no cartão" required />
+          </div>
+
+          <div class="checkout-actions">
+            <button type="button" class="checkout-cancel" id="checkoutCancelBtn">Cancelar</button>
+            <button type="submit" class="checkout-submit">Confirmar Pagamento</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>

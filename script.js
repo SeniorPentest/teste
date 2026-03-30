@@ -254,15 +254,43 @@
 
 
 /* ══════════════════════════════════════════════════════════════
-   ADD TO CART — feedback
+   SHOPPING CART SYSTEM
    ══════════════════════════════════════════════════════════════ */
 (function initCart() {
+  const cart = [];
+
+  // Elements
+  const cartBtn = document.getElementById('cartBtn');
+  const cartCount = document.getElementById('cartCount');
+  const cartSidebar = document.getElementById('cartSidebar');
+  const cartOverlay = document.getElementById('cartOverlay');
+  const cartClose = document.getElementById('cartClose');
+  const cartItems = document.getElementById('cartItems');
+  const cartEmpty = document.getElementById('cartEmpty');
+  const cartFooter = document.getElementById('cartFooter');
+  const cartTotalValue = document.getElementById('cartTotalValue');
+  const checkoutBtn = document.getElementById('checkoutBtn');
+
+  // Add to cart buttons
   document.querySelectorAll('[data-action="add-to-cart"]').forEach(btn => {
-    btn.addEventListener('click', function () {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      const card = this.closest('.card');
+      const item = {
+        id: card.dataset.id,
+        name: card.dataset.name,
+        category: card.dataset.category,
+        price: parseFloat(card.dataset.price),
+        image: card.querySelector('img')?.src || ''
+      };
+
+      addToCart(item);
+
+      // Visual feedback
       const original = this.textContent;
       this.textContent = '✓';
-      this.style.borderColor = '#7caf7c';
-      this.style.color = '#7caf7c';
+      this.style.borderColor = '#4caf50';
+      this.style.color = '#4caf50';
       setTimeout(() => {
         this.textContent = original;
         this.style.borderColor = '';
@@ -270,4 +298,192 @@
       }, 1200);
     });
   });
+
+  function addToCart(item) {
+    // Check if item already exists
+    const existing = cart.find(i => i.id === item.id);
+    if (existing) {
+      existing.quantity = (existing.quantity || 1) + 1;
+    } else {
+      item.quantity = 1;
+      cart.push(item);
+    }
+    updateCart();
+    showCartFeedback();
+  }
+
+  function removeFromCart(id) {
+    const index = cart.findIndex(i => i.id === id);
+    if (index > -1) {
+      cart.splice(index, 1);
+      updateCart();
+    }
+  }
+
+  function updateCart() {
+    // Update count
+    const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+    cartCount.textContent = totalItems;
+
+    // Update cart display
+    if (cart.length === 0) {
+      cartEmpty.style.display = 'flex';
+      cartFooter.style.display = 'none';
+      cartItems.innerHTML = '';
+      cartItems.appendChild(cartEmpty);
+    } else {
+      cartEmpty.style.display = 'none';
+      cartFooter.style.display = 'block';
+      renderCartItems();
+    }
+
+    // Update total
+    const total = cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
+    cartTotalValue.textContent = `R$ ${total.toFixed(0)}`;
+  }
+
+  function renderCartItems() {
+    cartItems.innerHTML = cart.map(item => `
+      <div class="cart-item">
+        <img src="${item.image}" alt="${item.name}" class="cart-item-img" />
+        <div class="cart-item-info">
+          <p class="cart-item-name">${item.name}</p>
+          <p class="cart-item-cat">${item.category}</p>
+          <p class="cart-item-price">R$ ${item.price.toFixed(0)} ${item.quantity > 1 ? `x ${item.quantity}` : ''}</p>
+          <button class="cart-item-remove" data-id="${item.id}">Remover</button>
+        </div>
+      </div>
+    `).join('');
+
+    // Add remove event listeners
+    cartItems.querySelectorAll('.cart-item-remove').forEach(btn => {
+      btn.addEventListener('click', () => removeFromCart(btn.dataset.id));
+    });
+  }
+
+  function showCartFeedback() {
+    cartBtn.style.transform = 'scale(1.1)';
+    setTimeout(() => {
+      cartBtn.style.transform = '';
+    }, 200);
+  }
+
+  function openCart() {
+    cartSidebar.classList.add('open');
+    cartOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeCart() {
+    cartSidebar.classList.remove('open');
+    cartOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // Event listeners
+  cartBtn.addEventListener('click', openCart);
+  cartClose.addEventListener('click', closeCart);
+  cartOverlay.addEventListener('click', closeCart);
+  checkoutBtn.addEventListener('click', () => {
+    closeCart();
+    openCheckout();
+  });
+
+  // Checkout functionality
+  const checkoutModal = document.getElementById('checkoutModal');
+  const checkoutBackdrop = document.getElementById('checkoutBackdrop');
+  const checkoutClose = document.getElementById('checkoutClose');
+  const checkoutCancelBtn = document.getElementById('checkoutCancelBtn');
+  const checkoutForm = document.getElementById('checkoutForm');
+  const checkoutSubtotal = document.getElementById('checkoutSubtotal');
+  const checkoutShipping = document.getElementById('checkoutShipping');
+  const checkoutTotal = document.getElementById('checkoutTotal');
+  const checkoutBody = document.getElementById('checkoutBody');
+
+  // Card number formatting
+  const cardNumberInput = document.getElementById('cardNumber');
+  cardNumberInput.addEventListener('input', (e) => {
+    let value = e.target.value.replace(/\s/g, '');
+    let formattedValue = value.match(/.{1,4}/g)?.join(' ') || value;
+    e.target.value = formattedValue;
+  });
+
+  // Expiry formatting
+  const cardExpiryInput = document.getElementById('cardExpiry');
+  cardExpiryInput.addEventListener('input', (e) => {
+    let value = e.target.value.replace(/\D/g, '');
+    if (value.length >= 2) {
+      value = value.slice(0, 2) + '/' + value.slice(2, 4);
+    }
+    e.target.value = value;
+  });
+
+  // CVV only numbers
+  const cardCVVInput = document.getElementById('cardCVV');
+  cardCVVInput.addEventListener('input', (e) => {
+    e.target.value = e.target.value.replace(/\D/g, '');
+  });
+
+  function openCheckout() {
+    if (cart.length === 0) return;
+
+    const subtotal = cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
+    const shipping = subtotal >= 350 ? 0 : 30;
+    const total = subtotal + shipping;
+
+    checkoutSubtotal.textContent = `R$ ${subtotal.toFixed(0)}`;
+    checkoutShipping.textContent = shipping === 0 ? 'GRÁTIS' : `R$ ${shipping.toFixed(0)}`;
+    checkoutTotal.textContent = `R$ ${total.toFixed(0)}`;
+
+    checkoutModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeCheckout() {
+    checkoutModal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  checkoutClose.addEventListener('click', closeCheckout);
+  checkoutCancelBtn.addEventListener('click', closeCheckout);
+  checkoutBackdrop.addEventListener('click', closeCheckout);
+
+  checkoutForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // Simulate payment processing
+    const submitBtn = checkoutForm.querySelector('.checkout-submit');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Processando...';
+
+    setTimeout(() => {
+      // Show success message
+      checkoutBody.innerHTML = `
+        <div class="checkout-success">
+          <div class="checkout-success-icon">✓</div>
+          <h4>Pagamento Confirmado!</h4>
+          <p>Seu pedido foi realizado com sucesso. Você receberá um e-mail de confirmação em breve.</p>
+          <button class="btn btn--primary" id="successClose">Fechar</button>
+        </div>
+      `;
+
+      document.getElementById('successClose').addEventListener('click', () => {
+        closeCheckout();
+        // Clear cart
+        cart.length = 0;
+        updateCart();
+
+        // Reset form
+        setTimeout(() => {
+          checkoutForm.reset();
+          checkoutBody.innerHTML = checkoutBody.innerHTML; // Reset to original
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Confirmar Pagamento';
+        }, 500);
+      });
+    }, 2000);
+  });
+
+  // Initialize
+  updateCart();
 })();
