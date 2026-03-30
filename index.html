@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VØID — Streetwear do Futuro</title>
+  <title>VØID — Streetwear Essencial</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -24,24 +24,27 @@
         <a href="#colecao">Coleção</a>
         <a href="#sobre">Manifesto</a>
         <a href="#newsletter">Contato</a>
-        <a href="#colecao" class="btn btn--outline">Shop</a>
+        <a href="#colecao" class="btn btn--outline">Comprar</a>
       </nav>
+      <div class="nav__actions">
+        <button type="button" class="btn btn--outline nav__cart" id="cartBtn" aria-label="Abrir carrinho" aria-expanded="false" aria-controls="cart">
+          Carrinho
+          <span class="nav__cart-count" id="cartCount">0</span>
+        </button>
+      </div>
     </div>
   </header>
 
   <!-- ─── HERO ──────────────────────────────────────────────── -->
   <section class="hero" id="hero">
-    <div class="hero__scan"></div>
-    <div class="hero__grid"></div>
     <div class="hero__content container">
-      <p class="hero__sub mono">// SS 2025 — URBAN SYSTEM</p>
+      <p class="hero__sub">Coleção essencial 2025</p>
       <h1 class="hero__title">
-        WEAR<br />
-        <span class="glitch" data-text="THE FUTURE">THE FUTURE</span>
+        Streetwear<br />
+        <span class="hero__title-accent">para todos os dias</span>
       </h1>
       <p class="hero__desc">
-        Streetwear construído para quem vive entre o concreto e o código.<br />
-        Estética radical. Tecido premium. Zero compromisso.
+        Peças confortáveis, tons suaves e acabamento premium para combinar sem esforço.
       </p>
       <div class="hero__cta">
         <a href="#colecao" class="btn btn--primary">Explorar Coleção</a>
@@ -49,8 +52,8 @@
       </div>
     </div>
     <div class="hero__ticker">
-      <span>STREETWEAR &nbsp;·&nbsp; FUTURO &nbsp;·&nbsp; URBAN &nbsp;·&nbsp; VOID &nbsp;·&nbsp; SYSTEM &nbsp;·&nbsp; OVERSIZE &nbsp;·&nbsp; MONOCHROME &nbsp;·&nbsp; CYBER &nbsp;·&nbsp; STREETWEAR &nbsp;·&nbsp; FUTURO &nbsp;·&nbsp; URBAN &nbsp;·&nbsp;</span>
-      <span aria-hidden="true">STREETWEAR &nbsp;·&nbsp; FUTURO &nbsp;·&nbsp; URBAN &nbsp;·&nbsp; VOID &nbsp;·&nbsp; SYSTEM &nbsp;·&nbsp; OVERSIZE &nbsp;·&nbsp; MONOCHROME &nbsp;·&nbsp; CYBER &nbsp;·&nbsp; STREETWEAR &nbsp;·&nbsp; FUTURO &nbsp;·&nbsp; URBAN &nbsp;·&nbsp;</span>
+      <span>CONFORTO &nbsp;·&nbsp; TONS NEUTROS &nbsp;·&nbsp; ESSENCIAL &nbsp;·&nbsp; VØID &nbsp;·&nbsp; CAMADAS &nbsp;·&nbsp; BÁSICOS &nbsp;·&nbsp; TEXTURAS &nbsp;·&nbsp; STREETWEAR &nbsp;·&nbsp;</span>
+      <span aria-hidden="true">CONFORTO &nbsp;·&nbsp; TONS NEUTROS &nbsp;·&nbsp; ESSENCIAL &nbsp;·&nbsp; VØID &nbsp;·&nbsp; CAMADAS &nbsp;·&nbsp; BÁSICOS &nbsp;·&nbsp; TEXTURAS &nbsp;·&nbsp; STREETWEAR &nbsp;·&nbsp;</span>
     </div>
   </section>
 
@@ -83,22 +86,24 @@
   <section class="colecao" id="colecao">
     <div class="container">
       <div class="section-header">
-        <p class="mono section-tag">// DROP_001</p>
+        <p class="mono section-tag">Drop 001</p>
         <h2 class="section-title">Coleção Atual</h2>
+        <p class="section-note">Imagens ilustrativas — fotos oficiais em breve.</p>
       </div>
 
       <div class="carousel" id="carousel">
         <div class="carousel__track" id="carouselTrack">
 
           <!-- Card 1 -->
-          <article class="card">
-            <div class="card__img" style="background: linear-gradient(135deg,#1a1a1a 0%,#2d2d2d 100%)">
+          <article class="card" data-sku="hoodie-areia" data-name="Hoodie Oversized Areia" data-price="389" data-category="Moletom">
+            <div class="card__img" style="background: linear-gradient(135deg,#f3ede7 0%,#e5dbd1 100%)">
               <div class="card__img-art" data-label="01"></div>
               <span class="card__badge">NEW</span>
             </div>
             <div class="card__body">
-              <p class="card__cat mono">HOODIE</p>
-              <h3 class="card__name">VOID OVERSIZED HOODIE</h3>
+              <p class="card__cat mono">MOLETOM</p>
+              <h3 class="card__name">Hoodie Oversized Areia</h3>
+              <p class="card__sizes">Tamanhos: P · M · G · GG</p>
               <div class="card__footer">
                 <span class="card__price">R$ 389</span>
                 <button class="btn btn--icon" data-action="add-to-cart" aria-label="Adicionar ao carrinho">+</button>
@@ -107,13 +112,14 @@
           </article>
 
           <!-- Card 2 -->
-          <article class="card">
-            <div class="card__img" style="background: linear-gradient(135deg,#111 0%,#333 100%)">
+          <article class="card" data-sku="camiseta-algodao" data-name="Camiseta Algodão Texturizada" data-price="189" data-category="Camiseta">
+            <div class="card__img" style="background: linear-gradient(135deg,#f6f1eb 0%,#e9ded4 100%)">
               <div class="card__img-art" data-label="02"></div>
             </div>
             <div class="card__body">
-              <p class="card__cat mono">T-SHIRT</p>
-              <h3 class="card__name">MATRIX GRAPHIC TEE</h3>
+              <p class="card__cat mono">CAMISETA</p>
+              <h3 class="card__name">Camiseta Algodão Texturizada</h3>
+              <p class="card__sizes">Tamanhos: P · M · G</p>
               <div class="card__footer">
                 <span class="card__price">R$ 189</span>
                 <button class="btn btn--icon" data-action="add-to-cart" aria-label="Adicionar ao carrinho">+</button>
@@ -122,14 +128,15 @@
           </article>
 
           <!-- Card 3 -->
-          <article class="card">
-            <div class="card__img" style="background: linear-gradient(135deg,#0d0d0d 0%,#2a2a2a 100%)">
+          <article class="card" data-sku="calca-cargo" data-name="Calça Cargo Urbana" data-price="479" data-category="Calça">
+            <div class="card__img" style="background: linear-gradient(135deg,#efe7dd 0%,#e2d6ca 100%)">
               <div class="card__img-art" data-label="03"></div>
               <span class="card__badge card__badge--hot">HOT</span>
             </div>
             <div class="card__body">
-              <p class="card__cat mono">CARGO</p>
-              <h3 class="card__name">CYBER CARGO PANTS</h3>
+              <p class="card__cat mono">CALÇA</p>
+              <h3 class="card__name">Calça Cargo Urbana</h3>
+              <p class="card__sizes">Tamanhos: 36 · 38 · 40 · 42</p>
               <div class="card__footer">
                 <span class="card__price">R$ 479</span>
                 <button class="btn btn--icon" data-action="add-to-cart" aria-label="Adicionar ao carrinho">+</button>
@@ -138,13 +145,14 @@
           </article>
 
           <!-- Card 4 -->
-          <article class="card">
-            <div class="card__img" style="background: linear-gradient(135deg,#181818 0%,#303030 100%)">
+          <article class="card" data-sku="jaqueta-leve" data-name="Jaqueta Leve Bege" data-price="699" data-category="Jaqueta">
+            <div class="card__img" style="background: linear-gradient(135deg,#f2ece5 0%,#e1d6cc 100%)">
               <div class="card__img-art" data-label="04"></div>
             </div>
             <div class="card__body">
-              <p class="card__cat mono">JACKET</p>
-              <h3 class="card__name">STATIC TECH JACKET</h3>
+              <p class="card__cat mono">JAQUETA</p>
+              <h3 class="card__name">Jaqueta Leve Bege</h3>
+              <p class="card__sizes">Tamanhos: P · M · G</p>
               <div class="card__footer">
                 <span class="card__price">R$ 699</span>
                 <button class="btn btn--icon" data-action="add-to-cart" aria-label="Adicionar ao carrinho">+</button>
@@ -153,13 +161,14 @@
           </article>
 
           <!-- Card 5 -->
-          <article class="card">
-            <div class="card__img" style="background: linear-gradient(135deg,#141414 0%,#2e2e2e 100%)">
+          <article class="card" data-sku="shorts-sarja" data-name="Shorts de Sarja Natural" data-price="279" data-category="Shorts">
+            <div class="card__img" style="background: linear-gradient(135deg,#f5efe8 0%,#e8ded4 100%)">
               <div class="card__img-art" data-label="05"></div>
             </div>
             <div class="card__body">
               <p class="card__cat mono">SHORTS</p>
-              <h3 class="card__name">GRID TACTICAL SHORTS</h3>
+              <h3 class="card__name">Shorts de Sarja Natural</h3>
+              <p class="card__sizes">Tamanhos: 36 · 38 · 40</p>
               <div class="card__footer">
                 <span class="card__price">R$ 279</span>
                 <button class="btn btn--icon" data-action="add-to-cart" aria-label="Adicionar ao carrinho">+</button>
@@ -168,14 +177,15 @@
           </article>
 
           <!-- Card 6 -->
-          <article class="card">
-            <div class="card__img" style="background: linear-gradient(135deg,#1c1c1c 0%,#353535 100%)">
+          <article class="card" data-sku="beanie-liso" data-name="Beanie Liso Neutro" data-price="149" data-category="Acessório">
+            <div class="card__img" style="background: linear-gradient(135deg,#f0e8df 0%,#e2d5c8 100%)">
               <div class="card__img-art" data-label="06"></div>
               <span class="card__badge">NEW</span>
             </div>
             <div class="card__body">
               <p class="card__cat mono">ACESSÓRIO</p>
-              <h3 class="card__name">NEURAL BEANIE CAP</h3>
+              <h3 class="card__name">Beanie Liso Neutro</h3>
+              <p class="card__sizes">Tamanho: Único</p>
               <div class="card__footer">
                 <span class="card__price">R$ 149</span>
                 <button class="btn btn--icon" data-action="add-to-cart" aria-label="Adicionar ao carrinho">+</button>
@@ -184,13 +194,14 @@
           </article>
 
           <!-- Card 7 -->
-          <article class="card">
-            <div class="card__img" style="background: linear-gradient(135deg,#0f0f0f 0%,#272727 100%)">
+          <article class="card" data-sku="longsleeve-basica" data-name="Longsleeve Básica Off-White" data-price="239" data-category="Longsleeve">
+            <div class="card__img" style="background: linear-gradient(135deg,#f5f0ea 0%,#e7dcd2 100%)">
               <div class="card__img-art" data-label="07"></div>
             </div>
             <div class="card__body">
               <p class="card__cat mono">LONGSLEEVE</p>
-              <h3 class="card__name">GHOST PROTOCOL LS</h3>
+              <h3 class="card__name">Longsleeve Básica Off-White</h3>
+              <p class="card__sizes">Tamanhos: P · M · G</p>
               <div class="card__footer">
                 <span class="card__price">R$ 239</span>
                 <button class="btn btn--icon" data-action="add-to-cart" aria-label="Adicionar ao carrinho">+</button>
@@ -199,14 +210,15 @@
           </article>
 
           <!-- Card 8 -->
-          <article class="card">
-            <div class="card__img" style="background: linear-gradient(135deg,#161616 0%,#2c2c2c 100%)">
+          <article class="card" data-sku="windbreaker-leve" data-name="Windbreaker Leve Areia" data-price="559" data-category="Windbreaker">
+            <div class="card__img" style="background: linear-gradient(135deg,#efe9e2 0%,#ded2c8 100%)">
               <div class="card__img-art" data-label="08"></div>
               <span class="card__badge card__badge--hot">HOT</span>
             </div>
             <div class="card__body">
               <p class="card__cat mono">WINDBREAKER</p>
-              <h3 class="card__name">SIGNAL WINDBREAKER</h3>
+              <h3 class="card__name">Windbreaker Leve Areia</h3>
+              <p class="card__sizes">Tamanhos: P · M · G</p>
               <div class="card__footer">
                 <span class="card__price">R$ 559</span>
                 <button class="btn btn--icon" data-action="add-to-cart" aria-label="Adicionar ao carrinho">+</button>
@@ -230,31 +242,31 @@
   <div class="features">
     <div class="container features__grid">
       <div class="feature">
-        <span class="feature__icon mono">&#9632;</span>
+        <span class="feature__icon">&#9679;</span>
         <div>
           <h4>Tecido Premium</h4>
-          <p>400g cotton brushed — durabilidade extrema</p>
+          <p>Algodão macio e acabamento pensado para o dia a dia</p>
         </div>
       </div>
       <div class="feature">
-        <span class="feature__icon mono">&#9632;</span>
+        <span class="feature__icon">&#9679;</span>
         <div>
-          <h4>Frete Grátis</h4>
-          <p>Para pedidos acima de R$ 350</p>
+          <h4>Entrega Flexível</h4>
+          <p>Opções padrão, expressa ou retirada em loja</p>
         </div>
       </div>
       <div class="feature">
-        <span class="feature__icon mono">&#9632;</span>
+        <span class="feature__icon">&#9679;</span>
         <div>
-          <h4>Drops Limitados</h4>
-          <p>Cada peça é produzida em quantidade controlada</p>
+          <h4>Pagamento Fácil</h4>
+          <p>Cartão, Pix ou boleto com confirmação rápida</p>
         </div>
       </div>
       <div class="feature">
-        <span class="feature__icon mono">&#9632;</span>
+        <span class="feature__icon">&#9679;</span>
         <div>
-          <h4>30 Dias</h4>
-          <p>Política de troca sem burocracia</p>
+          <h4>Troca Tranquila</h4>
+          <p>30 dias para trocar sem complicação</p>
         </div>
       </div>
     </div>
@@ -270,17 +282,17 @@
         </div>
       </div>
       <div class="sobre__text">
-        <p class="mono section-tag">// MANIFESTO_VOID</p>
-        <h2 class="section-title">Nós não seguimos<br /><em>tendências.</em></h2>
+        <p class="mono section-tag">Manifesto VØID</p>
+        <h2 class="section-title">Nós seguimos<br /><em>o seu ritmo.</em></h2>
         <p>
-          VØID nasceu da recusa. Da recusa em usar o que todo mundo usa,
-          em seguir o que o feed manda, em comprar moda descartável.
+          VØID nasceu para simplificar: peças versáteis, cores neutras
+          e caimento pensado para a rotina.
         </p>
         <p>
-          Cada drop é uma declaração: estética brutalmente honesta,
-          construção sem atalhos e identidade que não pede licença.
+          Cada drop é feito com atenção aos detalhes, priorizando conforto,
+          acabamento premium e combinações fáceis.
         </p>
-        <p class="sobre__quote mono">"se não é VØID, é ruído."</p>
+        <p class="sobre__quote mono">"menos ruído, mais você."</p>
         <a href="#colecao" class="btn btn--primary">Ver Coleção</a>
       </div>
     </div>
@@ -290,21 +302,22 @@
   <section class="lookbook">
     <div class="container">
       <div class="section-header">
-        <p class="mono section-tag">// LOOKBOOK_SS25</p>
+        <p class="mono section-tag">Lookbook 2025</p>
         <h2 class="section-title">Como usar</h2>
+        <p class="section-note">Composições ilustrativas em tons suaves.</p>
       </div>
       <div class="lookbook__grid">
         <div class="lb lb--tall" data-num="01">
-          <span class="lb__label mono">OVERSIZED STACK</span>
+          <span class="lb__label mono">Camadas suaves</span>
         </div>
         <div class="lb" data-num="02">
-          <span class="lb__label mono">MONOCHROME SET</span>
+          <span class="lb__label mono">Neutro casual</span>
         </div>
         <div class="lb" data-num="03">
-          <span class="lb__label mono">LAYERED SYSTEM</span>
+          <span class="lb__label mono">Texturas leves</span>
         </div>
         <div class="lb lb--wide" data-num="04">
-          <span class="lb__label mono">CYBER UTILITY</span>
+          <span class="lb__label mono">Básicos urbanos</span>
         </div>
       </div>
     </div>
@@ -314,9 +327,9 @@
   <section class="newsletter" id="newsletter">
     <div class="newsletter__scan"></div>
     <div class="container newsletter__inner">
-      <p class="mono section-tag">// ACESSO_ANTECIPADO</p>
-      <h2 class="section-title">Seja o primeiro<br />a saber.</h2>
-      <p class="newsletter__sub">Drops exclusivos, promoções e conteúdo direto no seu e-mail.</p>
+      <p class="mono section-tag">Novidades VØID</p>
+      <h2 class="section-title">Fique por dentro<br />dos lançamentos.</h2>
+      <p class="newsletter__sub">Novas peças, reposições e ofertas suaves direto no seu e-mail.</p>
       <form class="newsletter__form" id="newsletterForm" novalidate>
         <input
           type="email"
@@ -337,7 +350,7 @@
     <div class="container footer__grid">
       <div class="footer__brand">
         <a href="#" class="nav__logo">VØ<span>ID</span></a>
-        <p>Streetwear construído para o amanhã.</p>
+        <p>Streetwear essencial do agora.</p>
         <div class="footer__socials">
           <a href="#" aria-label="Instagram">IG</a>
           <a href="#" aria-label="TikTok">TK</a>
@@ -374,9 +387,92 @@
     </div>
     <div class="footer__bottom container">
       <p class="mono">© 2025 VØID SYSTEM — todos os direitos reservados</p>
-      <p class="mono">PRIVACY &nbsp;·&nbsp; TERMS</p>
+      <p class="mono">PRIVACIDADE &nbsp;·&nbsp; TERMOS</p>
     </div>
   </footer>
+
+  <div class="cart" id="cart" aria-hidden="true">
+    <div class="cart__backdrop" data-action="close-cart"></div>
+    <aside class="cart__panel" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+      <div class="cart__header">
+        <h3 id="cartTitle">Seu carrinho</h3>
+        <button class="btn btn--icon cart__close" type="button" data-action="close-cart" aria-label="Fechar carrinho">×</button>
+      </div>
+      <div class="cart__content">
+        <p class="cart__empty">Seu carrinho está vazio por enquanto.</p>
+        <ul class="cart__items" id="cartItems"></ul>
+      </div>
+      <div class="cart__summary">
+        <div class="cart__row">
+          <span>Subtotal</span>
+          <strong id="cartSubtotal">R$ 0</strong>
+        </div>
+        <div class="cart__row cart__row--select">
+          <label for="shippingSelect">Entrega</label>
+          <select id="shippingSelect" class="cart__select">
+            <option value="0">Padrão (R$ 0)</option>
+            <option value="25">Expressa (R$ 25)</option>
+            <option value="0">Retirada em loja (R$ 0)</option>
+          </select>
+        </div>
+        <div class="cart__row">
+          <span>Frete</span>
+          <span id="cartShipping">R$ 0</span>
+        </div>
+        <div class="cart__row cart__row--total">
+          <span>Total</span>
+          <strong id="cartTotal">R$ 0</strong>
+        </div>
+      </div>
+      <form class="cart__checkout" id="checkoutForm" novalidate>
+        <h4>Pagamento</h4>
+        <div class="cart__payment-options">
+          <label class="cart__option">
+            <input type="radio" name="payment" value="card" checked />
+            Cartão
+          </label>
+          <label class="cart__option">
+            <input type="radio" name="payment" value="pix" />
+            Pix
+          </label>
+          <label class="cart__option">
+            <input type="radio" name="payment" value="boleto" />
+            Boleto
+          </label>
+        </div>
+        <div class="cart__fields" id="cardFields">
+          <label class="cart__field">
+            <span>Nome no cartão</span>
+            <input type="text" name="cardName" autocomplete="cc-name" placeholder="Nome completo" required />
+          </label>
+          <label class="cart__field">
+            <span>Número do cartão</span>
+            <input type="text" name="cardNumber" autocomplete="cc-number" placeholder="0000 0000 0000 0000" inputmode="numeric" required />
+          </label>
+          <div class="cart__field-row">
+            <label class="cart__field">
+              <span>Validade</span>
+              <input type="text" name="cardExpiry" autocomplete="cc-exp" placeholder="MM/AA" required />
+            </label>
+            <label class="cart__field">
+              <span>CVV</span>
+              <input type="text" name="cardCvv" autocomplete="cc-csc" placeholder="123" inputmode="numeric" required />
+            </label>
+          </div>
+          <label class="cart__field">
+            <span>Parcelamento</span>
+            <select id="installmentSelect" class="cart__select">
+              <option value="1">1x sem juros</option>
+              <option value="2">2x sem juros</option>
+              <option value="3">3x sem juros</option>
+            </select>
+          </label>
+        </div>
+        <button type="submit" class="btn btn--primary cart__submit">Finalizar compra</button>
+        <p class="cart__note" id="checkoutMsg">Simulação de checkout — pagamentos reais serão integrados depois.</p>
+      </form>
+    </aside>
+  </div>
 
   <script src="script.js"></script>
 </body>
